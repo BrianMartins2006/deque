@@ -60,48 +60,26 @@
                     <input type="number" class="form-control form-control-lg" id="txtnovaPrioridade" placeholder="1 = Alta, 2 = Média, 3 = Baixa" min="1" max="3">
                   </div>
                   
-                  <div class="mb-4">
-                    <label for="txtIndice" class="form-label fw-semibold">
-                      <i class="fas fa-list-ol me-1"></i>Índice (opcional)
-                    </label>
-                    <input type="number" class="form-control form-control-lg" id="txtIndice" placeholder="Posição na lista..." min="0">
-                  </div>
-
                   <!-- Action Buttons -->
                   <div class="row g-2 mb-3">
-                    <div class="col-6">
-                      <button type="button" class="btn btn-success btn-lg w-100" onclick="adicionarElementoInicio()">
-                        <i class="fas fa-angle-double-up me-1"></i>Início
-                      </button>
-                    </div>
-                    <div class="col-6">
-                      <button type="button" class="btn btn-success btn-lg w-100" onclick="adicionarElementoFinal()">
-                        <i class="fas fa-angle-double-down me-1"></i>Final
-                      </button>
-                    </div>
                     <div class="col-12">
-                      <button type="button" class="btn btn-info btn-lg w-100" onclick="adicionarIndice()">
-                        <i class="fas fa-crosshairs me-1"></i>Adicionar no Índice
+                      <button type="button" class="btn btn-info btn-lg w-100" onclick="adicionarOrdenado()">
+                        <i class="fas fa-crosshairs me-1"></i>Adicionar Tarefa
                       </button>
                     </div>
                   </div>
 
-                  <!-- Remove Buttons -->
+                  <!-- Remove Button -->
                   <div class="row g-2 mb-3">
-                    <div class="col-6">
-                      <button type="button" class="btn btn-outline-danger w-100" onclick="removerElementoInicio()">
-                        <i class="fas fa-minus-circle me-1"></i>Remover Início
-                      </button>
-                    </div>
-                    <div class="col-6">
-                      <button type="button" class="btn btn-outline-danger w-100" onclick="removerElementoFinal()">
-                        <i class="fas fa-minus-circle me-1"></i>Remover Final
+                    <div class="col-12">
+                      <button type="button" class="btn btn-outline-danger w-100" onclick="removeTarefas()">
+                        <i class="fas fa-minus-circle me-1"></i>Resolver Tarefa
                       </button>
                     </div>
                   </div>
 
                   <!-- Storage Buttons -->
-                  <div class="row g-2">
+                  <div class="row g-2 mb-3">
                     <div class="col-6">
                       <button type="button" class="btn btn-outline-secondary w-100" onclick="saveLinkedListToLocalStorage()">
                         <i class="fas fa-save me-1"></i>Salvar
@@ -110,6 +88,20 @@
                     <div class="col-6">
                       <button type="button" class="btn btn-outline-secondary w-100" onclick="loadLinkedListFromLocalStorage()">
                         <i class="fas fa-upload me-1"></i>Carregar
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Extra Feature Buttons -->
+                  <div class="row g-2">
+                    <div class="col-6">
+                      <button type="button" class="btn btn-outline-primary w-100" onclick="mostrarPrimeiraTarefa()">
+                        <i class="fas fa-flag me-1"></i>Primeira Tarefa
+                      </button>
+                    </div>
+                    <div class="col-6">
+                      <button type="button" class="btn btn-outline-primary w-100" onclick="mostrarTarefaMaisAntiga()">
+                        <i class="fas fa-history me-1"></i>Tarefa Mais Antiga
                       </button>
                     </div>
                   </div>
@@ -132,7 +124,7 @@
                   <h5>Lista vazia!</h5>
                   <p class="mb-0">Adicione uma nova tarefa para começar</p>
                 </div>
-                <ul id="list_listadeTarefas" ></ul>
+                <ul id="list_listadeTarefas"></ul>
               </div>
             </div>
           </div>
@@ -144,7 +136,7 @@
         <div class="container">
           <p class="mb-0">
             <i class="fas fa-heart text-danger me-1"></i>
-            Desenvolvido por IFSULDEMINAS para fins educacionais.
+            Desenvolvido por Brian Martins para fins de conseguir nota.
           </p>
         </div>
       </footer>
