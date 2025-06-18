@@ -44,25 +44,31 @@ function adicionarElementoFinal() {
 function adicionarOrdenado() {
     const novaTarefa = leiaDadosTarefa();
     if (novaTarefa != null){
-        const novaPrioridade = document.getElementById("txtnovaPrioridade").value.trim();
+        const novaPrioridade = parseInt(document.getElementById("txtnovaPrioridade").value.trim());
+
+        let indice = 0;
+        let resposta = false;
+
         if(minhaLista.isEmpty() ){
-            minhaLista.addFirst(novaTarefa);
+            console.log(novaTarefa.toString() + " - Entrou: " + novaPrioridade); 
+            resposta = minhaLista.addFirst(novaTarefa); 
+        }
+
+        else if(novaPrioridade >= minhaLista.getLast().prioridade){
+            resposta = minhaLista.addLast(novaTarefa);
         }
         else if(novaPrioridade < minhaLista.getFirst().prioridade ){
-            minhaLista.addFirst(novaTarefa);
-        }
-        else if(novaPrioridade >= minhaLista.getLast().prioridade){
-            minhaLista.addLast(novaTarefa);
+            resposta = minhaLista.addFirst(novaTarefa);
         } else { 
-            let index = 0;
             for (const tarefa of minhaLista) {
-                const prioridadeAtual = tarefa.prioridade;
+                const prioridadeAtual = parseInt(tarefa.prioridade);
                 if (novaPrioridade < prioridadeAtual) {
                     break;
                 }
-                index++;
+                indice++;
             }
-            minhaLista.addAtIndex(index, novaTarefa); 
+            minhaLista.addAtIndex(indice, novaTarefa); 
+            resposta = true; 
         }
         console.log(minhaLista.toString());
         limpaInputs();
