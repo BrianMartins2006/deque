@@ -83,11 +83,9 @@ function removeTarefas() {
     }
 
     if(tarefaSelecionadaIndex === null){
-        // Remove primeira tarefa
         const tarefaRemovida = minhaLista.removeFirst();
         mostrarMensagemRemocao(tarefaRemovida);
     } else {
-        // Remove tarefa selecionada
         const tarefaRemovida = minhaLista.removeAtIndex(tarefaSelecionadaIndex);
         mostrarMensagemRemocao(tarefaRemovida);
         tarefaSelecionadaIndex = null; // limpa seleção
